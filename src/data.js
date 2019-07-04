@@ -162,8 +162,8 @@ const data = [
     name: { first: "Say", last: "Gooderick" },
     city: "Lousado",
     country: "Portugal",
-    employer: null,
-    title: null,
+    employer: "Greg Smith",
+    title: "Broker",
     favoriteMovies: ["Unholy Three, The", "Kabul Express", "All-Star Superman"]
   },
   {
