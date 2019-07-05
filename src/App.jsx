@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-import data from './data';
 import ListDisplay from './ListDisplay.jsx';
+import data from './data';
+import './App.css';
+import Form from './Form.jsx';
 
 class App extends Component {
   constructor() {
@@ -13,6 +14,7 @@ class App extends Component {
     this.increase = this.increase.bind(this)
     this.decrease = this.decrease.bind(this)
     this.delete = this.delete.bind(this)
+
   }
   increase() {
     let newCount;
@@ -34,21 +36,22 @@ class App extends Component {
   }
   
   delete() {
-    if (this.state.count > 0) {
-      var newCount;
-      this.state.people.splice(this.state.count, 1) 
-      newCount = this.state.count - 1;
-      this.setState({count: newCount});
-    }
-    else if (this.state.people === 0) {
-      this.setState({count: newCount});
-    }
-    else {
-      this.state.people.splice(this.state.count, 1)
-      newCount = this.state.count;
-      this.setState({count: newCount});
+    if (this.state.people.length > 1) {
+      if (this.state.count > 0) {
+        var newCount;
+        this.state.people.splice(this.state.count, 1);
+        newCount = this.state.count - 1;
+        this.setState({count: newCount});
+      }
+      else {
+        this.state.people.splice(this.state.count, 1);
+        newCount = this.state.count;
+        this.setState({count: newCount});
+      }
+      console.log(this.state.count);
     }
   }
+    
   render() {
     return (
       <div className="App">
@@ -71,6 +74,7 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <Form />
       </div>
     );
   }
